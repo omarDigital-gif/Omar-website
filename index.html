@@ -7,19 +7,19 @@
   <!-- Primary Meta Tags -->
   <title>Omar Digital Sales — Grow on Threads & Instagram</title>
   <meta name="title" content="Omar Digital Sales — Grow on Threads & Instagram">
-  <meta name="description" content="Prompt libraries, hook swipe files, and blueprints for building a digital product business on Threads and Instagram.">
+  <meta name="description" content="From posting on Threads to making sales — the full system.">
   <link rel="canonical" href="https://omardigital-gif.github.io/Omar-website/">
 
   <!-- Favicons -->
   <link rel="icon" href="https://omardigital-gif.github.io/Omar-website/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="https://omardigital-gif.github.io/Omar-website/favicon.ico" sizes="32x32">
 
-  <!-- Open Graph / Facebook / LinkedIn -->
+  <!-- Open Graph / Facebook / LinkedIn / Threads -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://omardigital-gif.github.io/Omar-website/">
   <meta property="og:site_name" content="Omar Digital Sales">
   <meta property="og:title" content="Omar Digital Sales — Grow on Threads & Instagram">
-  <meta property="og:description" content="Prompt libraries, hook swipe files, and blueprints for building a digital product business on Threads and Instagram.">
+  <meta property="og:description" content="From posting on Threads to making sales — the full system.">
   <meta property="og:image" content="https://omardigital-gif.github.io/Omar-website/social-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://omardigital-gif.github.io/Omar-website/">
   <meta name="twitter:title" content="Omar Digital Sales — Grow on Threads & Instagram">
-  <meta name="twitter:description" content="Prompt libraries, hook swipe files, and blueprints for building a digital product business on Threads and Instagram.">
+  <meta name="twitter:description" content="From posting on Threads to making sales — the full system.">
   <meta name="twitter:image" content="https://omardigital-gif.github.io/Omar-website/social-preview.png">
 
   <!-- Google Analytics Script -->
@@ -343,4 +343,111 @@
 
     /* COOKIE BANNER */
     .cookie-banner {
-      position: fixed; left: 16px; right: 16px; bottom: 16px; max-width: 560px; margin
+      position: fixed; left: 16px; right: 16px; bottom: 16px; max-width: 560px; margin: 0 auto;
+      background: var(--bg-panel); border: 1px solid var(--border); border-radius: 8px;
+      padding: 18px 20px; z-index: 200; display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    }
+    .cookie-banner[hidden] { display: none; }
+    .cookie-btn { padding: 8px 16px; border-radius: 4px; cursor: pointer; font-family: 'Playfair Display'; }
+
+    @media (max-width: 768px) {
+      .bundle { padding: 32px 24px; }
+      .bundle-top { flex-direction: column; gap: 16px; }
+      .bundle-grid { grid-template-columns: 1fr; margin: 0 -24px; }
+      .grid-item { border-right: none !important; border-bottom: 1px solid var(--border); }
+      .bundle-footer { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .product-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo-group">
+      <div class="mark-mini">O</div>
+      <span class="nav-logo">Omar Digital Sales</span>
+    </a>
+    <a href="https://www.threads.net/@omar_digitalsales" target="_blank" class="nav-link">@omar_digitalsales</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="mark">O</div>
+      <h1>Turn Threads into your top revenue channel.</h1>
+      <p>Prompt libraries, hook swipe files, and step-by-step blueprints for creators who want to scale faster.</p>
+      <div class="hero-ctas">
+        <a href="#shop" class="btn btn-gold">Shop the collection</a>
+        <a href="https://omarayman7.gumroad.com/l/uhdznf" class="btn btn-ghost">Get the free guide</a>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><span class=\"stat-num\">800+</span><span class=\"stat-label\">Followers</span></div>
+        <div class="stat"><span class=\"stat-num\">350K</span><span class=\"stat-label\">Monthly Views</span></div>
+        <div class="stat"><span class=\"stat-num\">150+</span><span class=\"stat-label\">Sales</span></div>
+      </div>
+
+      <!-- BUNDLE SECTION -->
+      <section id="shop">
+        <div class="bundle-header">
+          <p class="section-lead-alt">The fastest way to start</p>
+        </div>
+
+        <div class="bundle">
+          <div class="bundle-top">
+            <div class="bundle-title-group">
+              <h3>The Threads Creator Bundle</h3>
+              <p class="desc">Hooks, prompts, and a content system in one package — everything you need to grow on Threads.</p>
+            </div>
+            <div class="bundle-price">
+              <span class="price">$25</span><span class="price-was">$33</span>
+            </div>
+          </div>
+
+          <div class="bundle-grid">
+            <div class="grid-item">
+              <span class="check">✓</span>
+              <span class="item-name">Threads Content Engine</span>
+              <span class="item-price">$5</span>
+            </div>
+            <div class="grid-item">
+              <span class="check">✓</span>
+              <span class="item-name">Threads Hook Swipe File</span>
+              <span class="item-price">$9</span>
+            </div>
+            <div class="grid-item">
+              <span class="check">✓</span>
+              <span class="item-name">The 5 Step Blueprint</span>
+              <span class="item-price">$19</span>
+            </div>
+          </div>
+
+          <div class="bundle-footer">
+            <p class="bundle-note">$8 less than buying each one separately.</p>
+            <a href="https://omarayman7.gumroad.com/l/nigvw" class="btn btn-gold">Get the bundle</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT LIST -->
+      <section>
+        <h2 class="section-title">Individual Toolkits</h2>
+        <div class="product-row">
+          <div class="product-info">
+            <h3>Threads Hook Swipe File</h3>
+            <p>30 plug-and-play hook templates to stop the scroll.</p>
+          </div>
+          <div class="product-action">
+            <span class="price">$9</span>
+            <a href="https://omarayman7.gumroad.com/l/hookswipe" class="btn btn-ghost">Get it</a>
+          </div>
+        </div>
+        <div class="product-row">
+          <div class="product-info">
+            <h3>The 5 Step Blueprint</h3>
+            <p>The roadmap to your first $1,000 from digital products.</p>
+          </div>
+          <div class="product-action">
+            <span class="price">$19</span>
+            <a href="https://omarayman7.gumroad.com/l/The5stepblueprint" cl
