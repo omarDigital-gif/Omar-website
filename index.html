@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Digital — Everything you need to sell on Threads</title>
+<style>
+  :root{
+    --bg:#0a0a0c;
+    --card:#18181a;
+    --border:#1c1c1e;
+    --text:#ffffff;
+    --text-dim:#bbbbbb;
+    --text-mute:#999999;
+    --text-faint:#777777;
+    --accent-gold:#e0a94d;
+    --accent-green:#8f8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#000;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .page{
+    background:var(--bg);
+    max-width:480px;
+    margin:0 auto;
+    min-height:100vh;
+    position:relative;
+    padding-bottom:76px;
+  }
+
+  /* Urgency bar */
+  .urgency{
+    padding:12px 20px;
+    background:#1a1410;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border-bottom:0.5px solid #2a2118;
+  }
+  .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--accent-gold);
+    display:inline-block;
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+  .urgency p{ color:var(--accent-gold); font-size:12px; margin:0; font-weight:600; }
+
+  /* Hero */
+  .hero{ padding:36px 20px 26px; text-align:center; border-bottom:0.5px solid var(--border); }
+  .eyebrow{ color:var(--text-faint); font-size:11px; letter-spacing:2px; margin:0 0 16px; }
+  .headline{ color:var(--text); font-size:26px; font-weight:500; line-height:1.3; margin:0 0 14px; }
+  .subhead{ color:var(--text-dim); font-size:14px; line-height:1.6; margin:0 0 22px; max-width:340px; margin-left:auto; margin-right:auto; }
+  .price-row{ display:flex; justify-content:center; align-items:baseline; gap:10px; margin-bottom:20px; }
+  .price-old{ color:var(--text-mute); font-size:15px; text-decoration:line-through; }
+  .price-new{ color:var(--text); font-size:30px; font-weight:600; }
+  .save-badge{ background:#1f2b1f; color:var(--accent-green); font-size:11px; padding:4px 10px; border-radius:20px; font-weight:600; }
+  .btn-main{
+    display:block; background:#fff; border:none; color:#000;
+    padding:16px 0; width:100%; font-size:15px; font-weight:600;
+    border-radius:30px; text-align:center; text-decoration:none;
+    cursor:pointer;
+  }
+  .trust-line{
+    color:var(--text-faint); font-size:11px; margin:10px 0 0;
+    display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+
+  /* Section shell */
+  .section{ padding:24px 20px; border-bottom:0.5px solid var(--border); }
+  .section-label{ color:var(--text-faint); font-size:11px; letter-spacing:1px; margin:0 0 14px; }
+
+  /* Product cards */
+  .product-card{
+    background:var(--card); border-radius:12px; padding:14px 16px;
+    margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;
+  }
+  .product-card:last-child{ margin-bottom:0; }
+  .icon-badge{
+    width:36px; height:36px; border-radius:9px; background:#232326;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .product-body{ flex:1; min-width:0; }
+  .product-top{ display:flex; justify-content:space-between; gap:8px; margin-bottom:4px; }
+  .product-name{ color:var(--text); font-size:14px; margin:0; font-weight:500; }
+  .product-price{ color:var(--text-mute); font-size:12px; margin:0; text-decoration:line-through; white-space:nowrap; }
+  .product-benefit{ color:#aaa; font-size:12px; margin:0; }
+
+  /* Individually */
+  .buy-row{
+    background:var(--card); border-radius:12px; padding:14px 16px;
+    margin-bottom:10px; display:flex; gap:12px; align-items:center;
+  }
+  .buy-row:last-of-type{ margin-bottom:0; }
+  .buy-name{ color:#ddd; font-size:13px; margin:0; flex:1; }
+  .btn-buy{
+    background:transparent; border:0.5px solid #555; color:#fff;
+    padding:8px 16px; font-size:12px; font-weight:600; border-radius:16px;
+    text-decoration:none; white-space:nowrap;
+  }
+  .footnote{ color:#666; font-size:11px; margin:12px 0 0; text-align:center; }
+
+  /* Stats */
+  .stats-row{ display:flex; justify-content:center; gap:22px; }
+  .stat{ text-align:center; }
+  .stat-num{ color:var(--text); font-size:19px; font-weight:600; margin:0; }
+  .stat-label{ color:#aaa; font-size:11px; margin:0; }
+
+  /* Free guide */
+  .free-guide{ text-align:center; }
+  .free-guide p{ color:var(--text-dim); font-size:13px; margin:0 0 14px; }
+  .btn-secondary{
+    display:block; background:#1c1c1e; border:0.5px solid #444; color:#fff;
+    padding:13px 0; width:100%; font-size:13px; font-weight:600;
+    border-radius:24px; text-align:center; text-decoration:none;
+  }
+
+  /* FAQ */
+  .faq-item{ border-bottom:0.5px solid #222; padding:14px 0; }
+  .faq-item:last-child{ border-bottom:none; }
+  .faq-q{
+    display:flex; justify-content:space-between; align-items:center;
+    cursor:pointer; background:none; border:none; width:100%; padding:0;
+    text-align:left; font-family:inherit;
+  }
+  .faq-q p{ color:var(--text); font-size:14px; margin:0; font-weight:500; }
+  .faq-icon{ color:var(--text-mute); font-size:17px; flex-shrink:0; margin-left:12px; }
+  .faq-a{ max-height:0; overflow:hidden; transition: max-height 0.25s ease-out; }
+  .faq-a p{ color:#aaa; font-size:12.5px; line-height:1.65; margin:12px 0 0; }
+
+  /* Sticky bar */
+  .sticky-bar{
+    position:fixed; bottom:0; left:50%; transform:translateX(-50%);
+    width:100%; max-width:480px;
+    background:#0d0d0f; border-top:0.5px solid #2a2a2a;
+    padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:14px;
+    z-index:10;
+  }
+  .sticky-info p{ margin:0; }
+  .sticky-name{ color:#fff; font-size:14px; font-weight:600; }
+  .sticky-price{ color:#999; font-size:12px; }
+  .sticky-price s{ margin-right:4px; }
+  .btn-sticky{
+    background:#fff; border:none; color:#000; padding:12px 24px;
+    font-size:13px; font-weight:600; border-radius:24px;
+    text-decoration:none; white-space:nowrap;
+  }
+
+  /* Tap + press feedback (touch-friendly, no hover dependency) */
+  a, button{ transition: transform 0.1s ease-out; }
+  a:active, button:active{ transform:scale(0.96); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="urgency">
+    <span class="dot"></span>
+    <p id="countdown">Bundle price ends in 23:59:47</p>
+  </div>
+
+  <div class="hero">
+    <p class="eyebrow">OMAR DIGITAL</p>
+    <h1 class="headline">Everything you need<br>to sell on Threads</h1>
+    <p class="subhead">The Blueprint + Hook Swipe File 2.0 + Prompt Pack, in one bundle.</p>
+    <div class="price-row">
+      <span class="price-old">$60</span>
+      <span class="price-new">$47</span>
+      <span class="save-badge">SAVE 22%</span>
+    </div>
+    <a href="https://tinyurl.com/Omar-Digital" class="btn-main">Get the Bundle — $47</a>
+    <p class="trust-line">🔒 Secure checkout via Gumroad</p>
+  </div>
+
+  <div class="section">
+    <p class="section-label">WHAT'S INCLUDED</p>
+
+    <div class="product-card">
+      <div class="icon-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h3v-4h4v-4h4v-4h4"/></svg>
+      </div>
+      <div class="product-body">
+        <div class="product-top">
+          <p class="product-name">Followers to Buyers: The Blueprint</p>
+          <p class="product-price">$19.99</p>
+        </div>
+        <p class="product-benefit">The exact 5-pillar system, step by step</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="icon-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M9 3v10a3.5 3.5 0 0 0 7 0V7"/><circle cx="9" cy="3" r="1.6" fill="#fff" stroke="none"/></svg>
+      </div>
+      <div class="product-body">
+        <div class="product-top">
+          <p class="product-name">Threads Hook Swipe File 2.0</p>
+          <p class="product-price">$19.99</p>
+        </div>
+        <p class="product-benefit">48 plug-and-play hooks across 8 categories</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="icon-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="product-body">
+        <div class="product-top">
+          <p class="product-name">The Threads Prompt Pack</p>
+          <p class="product-price">$19.99</p>
+        </div>
+        <p class="product-benefit">70 AI prompts, built on the same 5-pillar system</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label" style="text-align:center;">WHY LISTEN TO ME</p>
+    <div class="stats-row">
+      <div class="stat"><p class="stat-num">150+</p><p class="stat-label">sales</p></div>
+      <div class="stat"><p class="stat-num">350K+</p><p class="stat-label">views / mo</p></div>
+      <div class="stat"><p class="stat-num">800+</p><p class="stat-label">followers</p></div>
+    </div>
+  </div>
+
+  <div class="section free-guide">
+    <p>Not ready yet? Start with the free guide.</p>
+    <a href="https://tinyurl.com/Omar-Digital" class="btn-secondary">Get Your First $100 Guide</a>
+  </div>
+
+  <div class="section">
+    <p class="section-label">OR BUY INDIVIDUALLY</p>
+
+    <div class="buy-row">
+      <div class="icon-badge">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h3v-4h4v-4h4v-4h4"/></svg>
+      </div>
+      <p class="buy-name">Followers to Buyers: The Blueprint</p>
+      <a href="https://tinyurl.com/Omar-Digital" class="btn-buy">$19.99 · Buy</a>
+    </div>
+
+    <div class="buy-row">
+      <div class="icon-badge">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M9 3v10a3.5 3.5 0 0 0 7 0V7"/><circle cx="9" cy="3" r="1.6" fill="#fff" stroke="none"/></svg>
+      </div>
+      <p class="buy-name">Threads Hook Swipe File 2.0</p>
+      <a href="https://tinyurl.com/Omar-Digital" class="btn-buy">$19.99 · Buy</a>
+    </div>
+
+    <div class="buy-row">
+      <div class="icon-badge">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <p class="buy-name">The Threads Prompt Pack</p>
+      <a href="https://tinyurl.com/Omar-Digital" class="btn-buy">$19.99 · Buy</a>
+    </div>
+
+    <div class="buy-row">
+      <div class="icon-badge">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="16.2" cy="7.8" r="0.6" fill="#fff" stroke="none"/></svg>
+      </div>
+      <p class="buy-name">Instagram Growth & Conversion Prompt Pack</p>
+      <a href="https://tinyurl.com/Omar-Digital" class="btn-buy">$19.99 · Buy</a>
+    </div>
+
+    <p class="footnote">Secure checkout via Gumroad · Instant download</p>
+  </div>
+
+  <div class="section" style="border-bottom:none;">
+    <p class="section-label">QUESTIONS</p>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <p>What exactly do I get?</p>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Instant digital downloads (PDF/templates) delivered right after checkout — no waiting, usable immediately on your phone or laptop.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <p>Who is this for?</p>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Both. If you're starting from zero, this gives you a clear system from day one. If you're already posting but not landing consistent sales — or haven't gotten your first one yet — this fixes the gaps in your content and offer.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <p>What if it's not for me?</p>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>All sales are final — no refunds. These are instant digital downloads, so once it's delivered it's yours. Make sure it's the right fit before you buy.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <p>Why is the bundle cheaper than buying separately?</p>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><p>Buying all three together saves you $13 compared to buying them one at a time — it's the same content, just bundled at a lower price.</p></div>
+    </div>
+  </div>
+
+  <div class="sticky-bar">
+    <div class="sticky-info">
+      <p class="sticky-name">Creator Bundle</p>
+      <p class="sticky-price"><s>$60</s> $47</p>
+    </div>
+    <a href="https://tinyurl.com/Omar-Digital" class="btn-sticky">Get the Bundle</a>
+  </div>
+
+</div>
+
+<script>
+  function toggleFaq(btn){
+    var answer = btn.nextElementSibling;
+    var icon = btn.querySelector('.faq-icon');
+    if (answer.style.maxHeight){
+      answer.style.maxHeight = '';
+      icon.textContent = '+';
+    } else {
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      icon.textContent = '−';
+    }
+  }
+
+  // NOTE: Replace this with a real fixed end date/time before going live.
+  // A countdown that silently resets on every visit will eventually be
+  // noticed and can hurt trust. Example real version:
+  // var end = new Date('2026-09-15T23:59:59-07:00').getTime();
+  var end = Date.now() + 24 * 3600 * 1000;
+  var countdownEl = document.getElementById('countdown');
+  setInterval(function(){
+    var d = Math.max(end - Date.now(), 0);
+    var h = Math.floor(d / 3600000);
+    var m = Math.floor((d % 3600000) / 60000);
+    var s = Math.floor((d % 60000) / 1000);
+    countdownEl.textContent = 'Bundle price ends in ' +
+      String(h).padStart(2,'0') + ':' +
+      String(m).padStart(2,'0') + ':' +
+      String(s).padStart(2,'0');
+  }, 1000);
+</script>
+
+</body>
+</html>
